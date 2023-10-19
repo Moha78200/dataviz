@@ -7,8 +7,7 @@ import folium
 from streamlit_folium import folium_static
 
 
-
-# Function to retrieve and preprocess data
+# Function to retrieve and preprocess data.
 @st.cache_data(show_spinner = "Loading data from API...")
 def load_data():
     api_url = "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/controle_techn/exports/csv?delimiter=%2C&list_separator=%2C&quote_all=false&with_bom=true"
