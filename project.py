@@ -175,7 +175,7 @@ st.title("Find The Nearest Inspection Center to You!")
 
 # Load the data lazily
 data = None
-load_data_button = st.sidebar.button("Click Here to Load the Data")
+load_data_button = st.sidebar.checkbox("Click Here to Load the Data")
 
 if load_data_button:
     data = load_data()
