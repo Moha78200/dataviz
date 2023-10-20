@@ -211,6 +211,7 @@ if data is not None:
     more_options = st.sidebar.checkbox("Enable more options")
     if more_options:
         st.subheader("Additional filters")
+        st.write("Here is the full list of all the inspection centers for your current filters.")
 
         selected_vehicle_category = st.sidebar.multiselect("Filter by Vehicle Category", ["All"] + list(data['cat_vehicule_libelle'].unique()), default=["All"])
         selected_energy_type = st.sidebar.multiselect("Filter by Energy Type", ["All"] + list(data['cat_energie_libelle'].unique()), default=["All"])
