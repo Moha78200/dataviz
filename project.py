@@ -265,8 +265,8 @@ if data is not None:
         st.write(filtered_data)
 else:
     st.write("There is nothing loaded yet...")
-    st.write("In this website you can explore a map to find the closes inspection center to you, you can check the address of the center as well as check the price for inspection and re-inspection even more information.")
-    st.write("There are several options to use, and some are even hidden, don't hesitate to explore this helpful tool.")
+    st.write("In this website you can explore a map to find the closest inspection center to you, you can check the address of the center as well as the price for inspection and re-inspection and even more information.")
+    st.write("There are several options to use, and some are hidden, don't hesitate to explore this helpful tool.")
 
 if st.sidebar.button("Refresh Data"):
     data = load_data()
