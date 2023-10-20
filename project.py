@@ -152,8 +152,8 @@ def display_guide():
     st.sidebar.subheader("3. Display Map")
     st.sidebar.write("Check the 'Display Map' checkbox to see inspection centers on the map.")
     
-    st.sidebar.subheader("4. Analyze the Market")
-    st.sidebar.write("Enable 'Analyze the Market' to apply additional filters and visualize the market.")
+    st.sidebar.subheader("4. Show more options")
+    st.sidebar.write("Enable 'Show more options' to apply additional filters and and get more visualization.")
     
     st.sidebar.subheader("5. Visualizations")
     st.sidebar.write("Use the checkboxes in the sidebar to show/hide different charts.")
@@ -208,9 +208,9 @@ if data is not None:
 
 
     # Add a button to show visualizations
-    analyze_market = st.sidebar.checkbox("Analyze the Market")
-    if analyze_market:
-        st.subheader("Market Analysis")
+    more_options = st.sidebar.checkbox("Enable more options")
+    if more_options:
+        st.subheader("Additional filters")
 
         selected_vehicle_category = st.sidebar.multiselect("Filter by Vehicle Category", ["All"] + list(data['cat_vehicule_libelle'].unique()), default=["All"])
         selected_energy_type = st.sidebar.multiselect("Filter by Energy Type", ["All"] + list(data['cat_energie_libelle'].unique()), default=["All"])
@@ -259,7 +259,7 @@ if data is not None:
                     if filtered_data is not None:
                         create_price_time_period_chart(filtered_data, pd.to_datetime(start_date, format='mixed', errors='coerce'), pd.to_datetime(end_date, format='mixed', errors='coerce'))
                     
-    if display_map or analyze_market:
+    if display_map or more_options:
         # Display the filtered data
         st.subheader("Filtered Inspection Centers")
         st.write(filtered_data)
