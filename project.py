@@ -65,22 +65,17 @@ def create_price_distribution_bar_chart(data):
     
     st.altair_chart(chart)
 
-# Function to create a time series line chart for inspection prices over time
-@st.cache_data(show_spinner = "Calculating time series...")
-def create_price_time_series_chart(data):
+# Function to create line chart for temporal analysis
+@st.cache_data(show_spinner="Calculating time series...")
+def create_time_series_chart(data):
     st.subheader("Temporal Analysis: Inspection Prices Over Time")
-    
+
     data['date_application_visite'] = pd.to_datetime(data['date_application_visite'], format='mixed', errors='ignore')
 
-    chart = alt.Chart(data).mark_line().encode(
-        x=alt.X('yearmonth(date_application_visite):O', title="Date"),
-        y=alt.Y('mean(prix_visite):Q', title="Mean Inspection Price"),
-        tooltip=['yearmonth(date_application_visite):O', 'mean(prix_visite):Q']
-    ).properties(
-        width=800
-    )
-    
-    st.altair_chart(chart)
+    chart_data = data.groupby(pd.Grouper(key='date_application_visite', freq='M'))['prix_visite'].mean().reset_index()
+
+    # Internal Streamlit line chart
+    st.line_chart(chart_data.set_index('date_application_visite'))
 
 
 # Function to create a time series line chart for inspection prices over a specified time period
