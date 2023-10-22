@@ -25,21 +25,14 @@ def load_data():
         return None
 
 # Function to create a bar chart for department distribution
-@st.cache_data(show_spinner = "Calculating distribution...")
+@st.cache_data(show_spinner="Calculating distribution...")
 def create_dept_distribution_chart(data):
     st.subheader("Distribution of Inspection Centers by Department")
     department_count = data['cct_code_dept'].value_counts().reset_index()
     department_count.columns = ['Department', 'Count']
-    
-    chart = alt.Chart(department_count).mark_bar().encode(
-        x='Department',
-        y='Count',
-        tooltip=['Department', 'Count']
-    ).properties(
-        width=600
-    )
-    
-    st.altair_chart(chart)
+
+    # Internal Streamlit bar chart
+    st.bar_chart(department_count.set_index('Department'))
 
 # Function to create bar charts for vehicle categories and energy types
 @st.cache_data(show_spinner = "Making the charts...")
