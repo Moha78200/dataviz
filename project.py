@@ -83,9 +83,9 @@ def create_price_time_series_chart(data):
     st.altair_chart(chart)
     st.subheader("Temporal Analysis: Inspection Prices Over Time (Streamlit Plot)")
 
-    chart_data = data.groupby('date_application_visite')['prix_visite'].mean()
+    chart_data = data.groupby('date_application_visite')['prix_visite'].mean().reset_index()
     
-    st.line_chart(chart_data('date_application_visite'))
+    st.line_chart(chart_data.set_index('date_application_visite'))
 
 
 
