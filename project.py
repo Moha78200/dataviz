@@ -156,7 +156,7 @@ def about_me_sidebar():
     st.sidebar.title("This is the result of project on Data Visualization.")
     st.sidebar.text("Hello! I am Mohamed AALI ANDELLA")
     st.sidebar.write("I am an engineering student at EFREI Paris with a passion for data visualization and analysis.")
-    st.sidebar.write("#DataViz2023Efrei")
+    st.sidebar.write("#DataVz2023Efrei")
     st.sidebar.markdown("Find me on:")
     st.sidebar.markdown("[LinkedIn](https://www.linkedin.com/in/aali-andella/)")
     st.sidebar.markdown("[GitHub](https://github.com/Moha78200)")
