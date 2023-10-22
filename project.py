@@ -178,7 +178,7 @@ if load_data_button:
     data = load_data()
 
 # Create a button switch to toggle between "About Me" and "User Guide"
-selected_tab = st.radio("Choose a tab:", ["About Me", "User Guide"])
+selected_tab = st.sidebar.radio("Choose a tab:", ["About Me", "User Guide"])
 
 # Display the selected content
 if selected_tab == "About Me":
