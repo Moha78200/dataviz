@@ -67,7 +67,7 @@ def create_price_distribution_bar_chart(data):
 
 # Function to create line chart for temporal analysis
 @st.cache_data(show_spinner="Calculating time series...")
-def create_time_series_chart(data):
+def create_price_time_series_chart(data):
     st.subheader("Temporal Analysis: Inspection Prices Over Time")
 
     data['date_application_visite'] = pd.to_datetime(data['date_application_visite'], format='mixed', errors='ignore')
