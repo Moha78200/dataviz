@@ -85,7 +85,8 @@ def create_price_time_series_chart(data):
 
     # Create a Streamlit line chart using the same data
     st.subheader("Temporal Analysis: Inspection Prices Over Time (Streamlit Plot)")
-    st.line_chart(data.set_index('date_application_visite')['mean(prix_visite)'].reset_index())
+    st.line_chart(data.set_index('date_application_visite')['mean(prix_visite)'].reset_index().rename(columns={'mean(prix_visite)': 'Mean Inspection Price'}))
+
 
 
 
