@@ -198,6 +198,8 @@ if data is not None:
     selected_departments = st.sidebar.multiselect("Filter by Department", ["All"] + list(data['cct_code_dept'].unique()), default=["All"])
     if "All" not in selected_departments:
         filtered_data = filtered_data[filtered_data['cct_code_dept'].isin(selected_departments)]
+    else:
+        st.sidebar.warning("It is not recomended to load the map with all departments, select the desired ones first!")
 
     # Display the map
     st.sidebar.write("Use the map to see inspection centers near you.")
@@ -218,9 +220,7 @@ if data is not None:
         selected_energy_type = st.sidebar.multiselect("Filter by Energy Type", ["All"] + list(data['cat_energie_libelle'].unique()), default=["All"])
         price_range = st.sidebar.slider("Filter by Price Range", float(data['prix_visite'].min()), float(data['prix_visite'].max()), (float(data['prix_visite'].min()), float(data['prix_visite'].max())))
 
-        if "All" in selected_vehicle_category:
-            st.sidebar.warning("It is not recomended to load the map with all departments, select the desired ones first!")
-        else:
+        if "All" not in selected_vehicle_category:
             filtered_data = filtered_data[filtered_data['cat_vehicule_libelle'].isin(selected_vehicle_category)]
 
         if "All" not in selected_energy_type:
