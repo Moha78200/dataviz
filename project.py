@@ -68,19 +68,6 @@ def create_price_distribution_bar_chart(data):
 # Function to create a time series line chart for inspection prices over time
 @st.cache_data(show_spinner="Calculating time series...")
 def create_price_time_series_chart(data):
-    
-    data['date_application_visite'] = pd.to_datetime(data['date_application_visite'], format='mixed', errors='ignore')
-
-    chart = alt.Chart(data).mark_line().encode(
-        x=alt.X('yearmonth(date_application_visite)', title="Date"),
-        y=alt.Y('mean(prix_visite)', title="Mean Inspection Price"),
-        tooltip=['yearmonth(date_application_visite)', 'mean(prix_visite)']
-    ).properties(
-        width=800
-    )
-
-    # Display the Altair chart
-    st.altair_chart(chart)
     st.subheader("Temporal Analysis: Inspection Prices Over Time (Streamlit Plot)")
 
     chart_data = data.groupby('date_application_visite')['prix_visite'].mean().reset_index()
@@ -164,6 +151,16 @@ def display_guide():
     st.sidebar.subheader("7. Refresh Data")
     st.sidebar.write("If needed, you can refresh the data using the 'Refresh Data' button.")
 
+# Function to create a sidebar with your information and links to GitHub and LinkedIn
+def about_me_sidebar():
+    st.sidebar.title("This is the result of project on Data Visualization.")
+    st.sidebar.text("Hello! I am Mohamed AALI ANDELLA")
+    st.sidebar.write("I am an engineering student at EFREI Paris with a passion for data visualization and analysis.")
+    st.sidebar.write("#DataVizEfrei2023")
+    st.sidebar.markdown("Find me on:")
+    st.sidebar.markdown("[LinkedIn](https://www.linkedin.com/in/aali-andella/)")
+    st.sidebar.markdown("[GitHub](https://github.com/Moha78200)")
+
 # Streamlit application
 st.set_page_config(
     page_title="Find Inspection Centers Nearby",
@@ -179,6 +176,9 @@ load_data_button = st.sidebar.checkbox("Click Here to Load the Data")
 
 if load_data_button:
     data = load_data()
+
+#Display about me sidebar
+about_me_sidebar()
 
 # Display the user guide
 display_guide()
