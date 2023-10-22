@@ -126,7 +126,7 @@ def display_inspection_centers_map(data):
     return m
 
 # Guide or Help Section
-def display_guide():
+def guide_sidebar():
     st.sidebar.title("User Guide")
     st.sidebar.write("Welcome to the Inspection Center Finder! Here's how to use the app:")
 
@@ -177,11 +177,14 @@ load_data_button = st.sidebar.checkbox("Click Here to Load the Data")
 if load_data_button:
     data = load_data()
 
-#Display about me sidebar
-about_me_sidebar()
+# Create a button switch to toggle between "About Me" and "User Guide"
+selected_tab = st.radio("Choose a tab:", ["About Me", "User Guide"])
 
-# Display the user guide
-display_guide()
+# Display the selected content
+if selected_tab == "About Me":
+    about_me_sidebar()
+else:
+    guide_sidebar()
 
 
 if data is not None:
