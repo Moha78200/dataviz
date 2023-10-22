@@ -200,7 +200,6 @@ if data is not None:
         filtered_data = filtered_data[filtered_data['cct_code_dept'].isin(selected_departments)]
 
     # Display the map
-    st.sidebar.warning("It is recomended to select the department(s) before loading the map!")
     st.sidebar.write("Use the map to see inspection centers near you.")
     display_map = st.sidebar.checkbox("Display Map")
 
@@ -221,6 +220,8 @@ if data is not None:
 
         if "All" not in selected_vehicle_category:
             filtered_data = filtered_data[filtered_data['cat_vehicule_libelle'].isin(selected_vehicle_category)]
+        else:
+            st.sidebar.warning("It is recomended to select the department(s) before loading the map!")
 
         if "All" not in selected_energy_type:
             filtered_data = filtered_data[filtered_data['cat_energie_libelle'].isin(selected_energy_type)]
