@@ -75,7 +75,7 @@ def create_price_time_series_chart(data):
     chart_data = data.groupby(pd.Grouper(key='date_application_visite', freq='M'))['prix_visite'].mean().reset_index()
 
     # Internal Streamlit line chart
-    st.line_chart(chart_data.set_index('date_application_visite'))
+    st.line_chart(data.set_index('date_application_visite')['mean(prix_visite)'])
 
 
 # Function to create a time series line chart for inspection prices over a specified time period
