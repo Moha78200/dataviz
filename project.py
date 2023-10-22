@@ -72,9 +72,9 @@ def create_price_time_series_chart(data):
     data['date_application_visite'] = pd.to_datetime(data['date_application_visite'], format='mixed', errors='ignore')
 
     chart = alt.Chart(data).mark_line().encode(
-        x=alt.X('yearmonth(date_application_visite):O', title="Date"),
-        y=alt.Y('mean(prix_visite):Q', title="Mean Inspection Price"),
-        tooltip=['yearmonth(date_application_visite):O', 'mean(prix_visite):Q']
+        x=alt.X('yearmonth(date_application_visite)', title="Date"),
+        y=alt.Y('mean(prix_visite)', title="Mean Inspection Price"),
+        tooltip=['yearmonth(date_application_visite)', 'mean(prix_visite)']
     ).properties(
         width=800
     )
