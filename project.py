@@ -85,7 +85,7 @@ def create_price_time_series_chart(data):
 
     chart_data = data.groupby('date_application_visite')['prix_visite'].mean()
     
-    st.line_chart(chart_data.set_index('date_application_visite'))
+    st.line_chart(chart_data('date_application_visite'))
 
 
 
