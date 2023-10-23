@@ -129,26 +129,23 @@ def display_inspection_centers_map(data):
 def guide_sidebar():
     st.sidebar.title("User Guide")
     st.sidebar.write("Welcome to the Inspection Center Finder! Here's how to use the app:")
-
-    st.sidebar.subheader("1. Load Data")
-    st.sidebar.write("Start by clicking 'Click Here to Load the Data' to load inspection center data.")
     
-    st.sidebar.subheader("2. Filter by Department")
+    st.sidebar.subheader("1. Filter by Department")
     st.sidebar.write("Use the 'Filter by Department' dropdown to select one or more departments or 'All'.")
 
-    st.sidebar.subheader("3. Display Map")
+    st.sidebar.subheader("2. Display Map")
     st.sidebar.write("Check the 'Display Map' checkbox to see inspection centers on the map.")
     
-    st.sidebar.subheader("4. Show more options")
+    st.sidebar.subheader("3. Show more options")
     st.sidebar.write("Enable 'Show more options' to apply additional filters and and get more visualization.")
     
-    st.sidebar.subheader("5. Visualizations")
+    st.sidebar.subheader("4. Visualizations")
     st.sidebar.write("Use the checkboxes in the sidebar to show/hide different charts.")
     
-    st.sidebar.subheader("6. Date Range Filter")
+    st.sidebar.subheader("5. Date Range Filter")
     st.sidebar.write("Select a time frame for price variation and click 'Show Price Variation'.")
 
-    st.sidebar.subheader("7. Refresh Data")
+    st.sidebar.subheader("6. Refresh Data")
     st.sidebar.write("If needed, you can refresh the data using the 'Refresh Data' button.")
 
 # Function to create a sidebar with your information and links to GitHub and LinkedIn
