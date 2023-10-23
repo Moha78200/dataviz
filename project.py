@@ -171,11 +171,7 @@ st.set_page_config(
 st.title("Find The Nearest Inspection Center to You!")
 
 # Load the data lazily
-data = None
-load_data_button = st.sidebar.checkbox("Click Here to Load the Data")
-
-if load_data_button:
-    data = load_data()
+data = load_data()
 
 # Create a button switch to toggle between "About Me" and "User Guide"
 selected_tab = st.sidebar.radio("Choose a tab:", ["User Guide", "About Me"])
