@@ -188,6 +188,8 @@ if data is not None:
     # Create custom filters for department, vehicle category, energy type, and price range
     st.sidebar.title("Options")
     st.write("Data is currently loaded!")
+    st.write("In this website you can explore a map to find the closest inspection center to you, you can check the address of the center as well as the price for inspection and re-inspection and even more information.")
+    st.write("There are several options to use, and some are hidden, don't hesitate to explore this helpful tool.")
     st.write("Please use the filters on the bottom-left side-bar to personnalize your search and find what you need!")
     # Apply filters to the data
     filtered_data = data.copy()
